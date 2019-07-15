@@ -1,0 +1,17 @@
+<%= link_to 'Ver carrito de compra', orders_path %>
+<%= link_to 'Cerrar sesión', destroy_user_session_path %>
+
+<% @products.each_slice(3) do |products| %>
+<div class='row'>
+    <% products.each do |product| %>
+        <div class='card m-2' style="width: 30%;"> 
+        <%= image_tag product.photo, class: 'card-img-top' %>
+            <div class="card-body">
+            <h5 class="card-title"><%= product.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= product.price %></h6>
+            <%= button_to 'Comprar', product_orders_path(product), class:'btn btn-primary' %>
+            </div>
+        </div>
+    <% end %>
+    </div>
+<% end %>

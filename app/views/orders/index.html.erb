@@ -1,0 +1,13 @@
+<% @orders.each do |order| %>
+<%= order.product.name %>
+<%= order.product.price %>
+<%= order.payed %>
+<% end %>
+
+<% sum= 0 %>
+<% @orders.each do |order| %>
+<% sum += order.product.price %>
+<% end %>
+
+Total: <%= sum %>
+
